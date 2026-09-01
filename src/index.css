@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Amarante&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@500;600&display=swap");
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-image: linear-gradient(rgba(245, 238, 229, 0.28), rgba(245, 238, 229, 0.35)), url("/background.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #3d2b1f;
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.brand-name {
+  font-family: "Amarante", cursive;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+::selection {
+  background: #e6d9c3;
+  color: #2b1e15;
+}
+
+:focus-visible {
+  outline: 2px solid #8a5a35;
+  outline-offset: 2px;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #e6d9c3;
+  color: #2b1e15;
+}
+
+:focus-visible {
+  outline: 2px solid #8a5a35;
+  outline-offset: 2px;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+

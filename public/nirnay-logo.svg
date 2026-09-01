@@ -1,0 +1,9 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer square -->
+  <path d="M 30 30 L 170 30 L 170 170 L 30 170 Z" fill="none" stroke="#6B4423" stroke-width="20" stroke-linejoin="round"/>
+  
+  <!-- Checkmark -->
+  <g stroke="#6B4423" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 70 110 L 95 135 L 140 70" />
+  </g>
+</svg>
