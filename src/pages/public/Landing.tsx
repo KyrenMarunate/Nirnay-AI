@@ -72,14 +72,9 @@ export default function Landing() {
                   transition={{ duration: 0.55, delay: 0.18 }}
                   className="mt-8 flex flex-col items-start gap-3 sm:flex-row"
                 >
-                  <Link to="/tenders">
+                  <Link to="/register">
                     <Button size="lg">
-                      View Open Tenders <ArrowRight size={16} />
-                    </Button>
-                  </Link>
-                  <Link to="/register/bidder">
-                    <Button size="lg" variant="secondary">
-                      Bidder Registration
+                      Get Started <ArrowRight size={16} />
                     </Button>
                   </Link>
                 </motion.div>
@@ -212,35 +207,7 @@ export default function Landing() {
         </PageContainer>
       </section>
 
-      <PageContainer className="py-16">
-        <div className="flex items-end justify-between">
-          <div>
-            <h2 className="text-3xl font-semibold tracking-tight text-[#2b1e15]">Featured Open Tenders</h2>
-            <p className="mt-2 text-[#6b5c4a]">A sample of currently open procurement opportunities.</p>
-          </div>
-          <Link to="/tenders" className="hidden items-center gap-1 text-sm font-medium text-[#3d2b1f] sm:inline-flex">
-            View all <ArrowRight size={14} />
-          </Link>
-        </div>
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          {tenders.filter((t) => t.status === "Open").slice(0, 2).map((tender) => (
-            <div key={tender.id} className="rounded-[24px] border border-[#e5ded1] bg-white p-6 shadow-[0_16px_32px_rgba(90,74,54,0.04)]">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#a4977f]">{tender.ministry}</p>
-              <h3 className="mt-2 text-xl font-semibold text-[#3d2b1f]">{tender.title}</h3>
-              <p className="mt-1 font-mono text-xs text-[#8a7c68]">{tender.id}</p>
-              <div className="mt-4 flex flex-wrap gap-4 text-sm text-[#6b5c4a]">
-                <span>Category: {tender.category}</span>
-                <span>Closing: {tender.closingDate}</span>
-              </div>
-              <Link to={`/tenders/${encodeURIComponent(tender.id)}`}>
-                <Button variant="secondary" size="sm" className="mt-5">
-                  View Tender
-                </Button>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </PageContainer>
+
     </div>
   );
 }

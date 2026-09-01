@@ -32,7 +32,7 @@ export default function BidderAvailableTenders() {
                 </dl>
               </div>
               <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-                <Link to={`/tenders/${encodeURIComponent(tender.id)}`}>
+                <Link to={`/bidder/tenders/${encodeURIComponent(tender.id)}`}>
                   <Button variant="secondary">View Details</Button>
                 </Link>
                 {alreadyBid(tender.id) ? (

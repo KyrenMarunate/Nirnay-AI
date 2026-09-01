@@ -111,31 +111,77 @@ export function Help() {
 }
 
 export function PortalChoice() {
+  const governmentWorkflow = [
+    "Create an officer profile with ministry, department and official contact details.",
+    "Define tender requirements, compliance criteria and evaluation checkpoints.",
+    "Publish the tender and monitor updates from bidders and internal reviewers.",
+    "Review submitted bids, compare compliance scores and technical fit.",
+    "Approve or reject the submission with clear audit records for accountability.",
+  ];
+
+  const bidderWorkflow = [
+    "Register your organisation and complete the company verification flow.",
+    "Upload required eligibility and compliance documents for the tender.",
+    "Browse active opportunities and review requirements, quantity and delivery terms.",
+    "Prepare your quotation, product details and supporting evidence.",
+    "Submit the bid and track the status from review to outcome.",
+  ];
+
   return (
-    <PageContainer className="max-w-3xl">
+    <PageContainer className="w-full max-w-[1600px]">
       <div className="text-center">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Choose Portal</h1>
-        <p className="mt-3 text-[#6b5c4a]">Select how you would like to register on Nirnay AI.</p>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Portal Workflow Overview</h1>
+        <p className="mt-3 text-[#6b5c4a]">See the end-to-end journey for both government procurement officers and bidders in one place.</p>
       </div>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
-        <div className="rounded-lg border border-[#e5ded1] bg-white p-8 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md bg-[#f1ece2]">
-            <Gavel size={22} className="text-[#3d2b1f]" />
+
+      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-[28px] border border-[#e5ded1] bg-white p-8 shadow-[0_16px_32px_rgba(90,74,54,0.04)]">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1ece2]">
+              <Gavel size={22} className="text-[#3d2b1f]" />
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#a4977f]">Government portal</p>
+              <h3 className="mt-1 text-2xl font-semibold text-[#3d2b1f]">Procurement Officer</h3>
+            </div>
           </div>
-          <h3 className="mt-4 text-lg font-semibold">Government Procurement Officer</h3>
-          <p className="mt-2 text-sm text-[#6b5c4a]">For authorized government procurement officials.</p>
-          <Link to="/register/government">
-            <Button className="mt-5 w-full">Government Registration <ArrowRight size={15} /></Button>
+
+          <div className="mt-6 space-y-4">
+            {governmentWorkflow.map((step, index) => (
+              <div key={step} className="flex gap-3 rounded-xl border border-[#efe7dc] bg-[#faf8f4] p-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#3d2b1f] text-xs font-semibold text-white">{index + 1}</span>
+                <p className="text-sm leading-6 text-[#5b4a3a]">{step}</p>
+              </div>
+            ))}
+          </div>
+
+          <Link to="/register/government" className="mt-8 block">
+            <Button className="w-full">Government Registration <ArrowRight size={15} /></Button>
           </Link>
         </div>
-        <div className="rounded-lg border border-[#e5ded1] bg-white p-8 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md bg-[#f1ece2]">
-            <Building2 size={22} className="text-[#3d2b1f]" />
+
+        <div className="rounded-[28px] border border-[#e5ded1] bg-white p-8 shadow-[0_16px_32px_rgba(90,74,54,0.04)]">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1ece2]">
+              <Building2 size={22} className="text-[#3d2b1f]" />
+            </div>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#a4977f]">Bidder portal</p>
+              <h3 className="mt-1 text-2xl font-semibold text-[#3d2b1f]">Supplier / Bidder</h3>
+            </div>
           </div>
-          <h3 className="mt-4 text-lg font-semibold">Bidder / Supplier</h3>
-          <p className="mt-2 text-sm text-[#6b5c4a]">For companies participating in government tenders.</p>
-          <Link to="/register/bidder">
-            <Button className="mt-5 w-full" variant="secondary">Bidder Registration <ArrowRight size={15} /></Button>
+
+          <div className="mt-6 space-y-4">
+            {bidderWorkflow.map((step, index) => (
+              <div key={step} className="flex gap-3 rounded-xl border border-[#efe7dc] bg-[#faf8f4] p-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#3d2b1f] text-xs font-semibold text-white">{index + 1}</span>
+                <p className="text-sm leading-6 text-[#5b4a3a]">{step}</p>
+              </div>
+            ))}
+          </div>
+
+          <Link to="/register/bidder" className="mt-8 block">
+            <Button className="w-full" variant="secondary">Bidder Registration <ArrowRight size={15} /></Button>
           </Link>
         </div>
       </div>

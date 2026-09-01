@@ -72,6 +72,7 @@ function AppRoutes() {
       >
         <Route path="/bidder" element={<BidderOverview />} />
         <Route path="/bidder/tenders" element={<BidderAvailableTenders />} />
+        <Route path="/bidder/tenders/:id" element={<TenderDetail />} />
         <Route path="/bidder/tenders/:id/bid" element={<BidSubmission />} />
         <Route path="/bidder/bids" element={<MyBids />} />
         <Route path="/bidder/bids/:bidId" element={<BidStatus />} />

@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { CheckCircle2, FileText, CalendarDays, MapPin, Package } from "lucide-react";
 import { PageContainer, Button, TenderStatusBadge, SectionCard } from "../../components/ui";
 import { tenders } from "../../data/mockData";
@@ -7,14 +7,18 @@ import { useApp } from "../../context/AppContext";
 export default function TenderDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { role } = useApp();
   const tender = tenders.find((t) => t.id === decodeURIComponent(id ?? ""));
+  const isBidderContext = location.pathname.startsWith("/bidder/");
 
   if (!tender) {
     return (
       <PageContainer>
         <p className="text-[#6b5c4a]">Tender not found.</p>
-        <Link to="/tenders" className="text-sm font-medium text-[#3d2b1f] underline">Back to Open Tenders</Link>
+        <Link to={isBidderContext ? "/bidder/tenders" : "/tenders"} className="text-sm font-medium text-[#3d2b1f] underline">
+          {isBidderContext ? "Back to Available Tenders" : "Back to Open Tenders"}
+        </Link>
       </PageContainer>
     );
   }
@@ -30,6 +34,9 @@ export default function TenderDetail() {
   return (
     <PageContainer>
       <div className="flex flex-col gap-3">
+        <Link to={isBidderContext ? "/bidder/tenders" : "/tenders"} className="text-sm font-medium text-[#3d2b1f] underline underline-offset-2">
+          {isBidderContext ? "Back to Available Tenders" : "Back to Open Tenders"}
+        </Link>
         <div className="flex flex-wrap items-center gap-3">
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{tender.title}</h1>
           <TenderStatusBadge status={tender.status} />

@@ -6,8 +6,6 @@ import { Button } from "./ui";
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/tenders", label: "Open Tenders" },
-  { to: "/how-it-works", label: "How It Works" },
   { to: "/about", label: "About" },
   { to: "/help", label: "Help" },
 ];
@@ -45,6 +43,16 @@ export function PublicHeader() {
                 )}
               </NavLink>
             ))}
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+                `relative rounded-full px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
+                  isActive ? "bg-white text-[#3d2b1f] shadow-sm" : "text-[#6b5c4a] hover:text-[#3d2b1f]"
+                }`
+              }
+            >
+              {({ isActive }) => <span className={isActive ? "relative z-10" : ""}>Know more</span>}
+            </NavLink>
           </nav>
 
           <div className="hidden shrink-0 items-center gap-2 lg:flex">
@@ -62,14 +70,6 @@ export function PublicHeader() {
             >
               Bidder Registration
             </button>
-            <motion.button
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex h-[52px] min-w-[150px] items-center justify-center rounded-[18px] bg-[#3d2b1f] px-4 text-sm font-medium text-white shadow-[0_10px_24px_rgba(61,43,31,0.2)]"
-              onClick={() => navigate("/tenders")}
-            >
-              View Open Tenders
-            </motion.button>
           </div>
 
           <button className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e7dfd2] bg-white p-0 lg:hidden" aria-label="Toggle menu" onClick={() => setOpen((v) => !v)}>
@@ -97,14 +97,14 @@ export function PublicHeader() {
             ))}
           </nav>
           <div className="mt-3 flex flex-col gap-2">
+            <Button size="sm" onClick={() => navigate("/register")}>
+              Know more
+            </Button>
             <Button variant="secondary" size="sm" onClick={() => navigate("/register/government")}>
               Government Registration
             </Button>
             <Button variant="secondary" size="sm" onClick={() => navigate("/register/bidder")}>
               Bidder Registration
-            </Button>
-            <Button size="sm" onClick={() => navigate("/tenders")}>
-              View Open Tenders
             </Button>
           </div>
         </div>
@@ -133,17 +133,16 @@ export function PublicFooter() {
             <div>
               <p className="font-medium text-[#3d2b1f]">Platform</p>
               <ul className="mt-3 space-y-2 text-[#8a7c68]">
-                <li><Link to="/tenders" className="hover:text-[#3d2b1f]">Open Tenders</Link></li>
-                <li><Link to="/how-it-works" className="hover:text-[#3d2b1f]">How It Works</Link></li>
                 <li><Link to="/about" className="hover:text-[#3d2b1f]">About</Link></li>
+                <li><Link to="/register" className="hover:text-[#3d2b1f]">Know more</Link></li>
               </ul>
             </div>
             <div>
               <p className="font-medium text-[#3d2b1f]">Access</p>
               <ul className="mt-3 space-y-2 text-[#8a7c68]">
                 <li><Link to="/register" className="hover:text-[#3d2b1f]">Register</Link></li>
-                <li><Link to="/login/bidder" className="hover:text-[#3d2b1f]">Bidder Login</Link></li>
-                <li><Link to="/login/government" className="hover:text-[#3d2b1f]">Government Login</Link></li>
+                <li><Link to="/register/government" className="hover:text-[#3d2b1f]">Government Registration</Link></li>
+                <li><Link to="/register/bidder" className="hover:text-[#3d2b1f]">Bidder Registration</Link></li>
               </ul>
             </div>
             <div>

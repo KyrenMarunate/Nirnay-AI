@@ -43,6 +43,15 @@ export default function BidderRegister() {
 
   const uploadedCount = Object.values(uploaded).filter(Boolean).length;
 
+  const workflow = [
+    { title: "1. Create your company profile", text: "Enter your legal details, business category and contact information for verification." },
+    { title: "2. Verify your organization", text: "The platform checks GST, PAN, Udyam and registration data to spot gaps before you bid." },
+    { title: "3. Upload required documents", text: "Add the compliance documents required for eligibility and tender participation." },
+    { title: "4. Browse available tenders", text: "Once registered, you can view open and active opportunities in the bidder dashboard." },
+    { title: "5. Review tender requirements", text: "Check scope, technical specifications, quantity, delivery timelines and documentation needs." },
+    { title: "6. Submit your bid", text: "Upload your quotation, product details and supporting evidence, then submit with confidence." },
+  ];
+
   const finish = () => {
     setComplete(true);
     window.setTimeout(() => {
@@ -254,6 +263,29 @@ export default function BidderRegister() {
         ) : (
           <Button onClick={finish}>Complete Registration</Button>
         )}
+      </div>
+
+      <div className="mt-10 w-full max-w-[1400px] rounded-lg border border-[#e5ded1] bg-white p-5 shadow-[0_10px_24px_rgba(90,74,54,0.04)]">
+        <h2 className="text-lg font-semibold text-[#3d2b1f]">What to expect after you register</h2>
+        <div className="mt-4 grid gap-3 lg:grid-cols-2 xl:grid-cols-3">
+          {workflow.map((step) => (
+            <div key={step.title} className="rounded-md border border-[#efe7dc] bg-[#faf8f4] p-3">
+              <p className="text-sm font-semibold text-[#3d2b1f]">{step.title}</p>
+              <p className="mt-1 text-sm leading-6 text-[#6b5c4a]">{step.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 rounded-md border border-[#e5ded1] bg-[#f8f4ee] p-4">
+          <h3 className="text-lg font-semibold text-[#3d2b1f]">Need help?</h3>
+          <ul className="mt-3 space-y-2 text-sm text-[#5b4a3a]">
+            <li>• Review the compliance documents required before submission.</li>
+            <li>• Use the bidder dashboard to compare tenders and requirements.</li>
+            <li>• Check the help center for guidance on registration and bidding steps.</li>
+          </ul>
+          <Link to="/help" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[#3d2b1f] underline underline-offset-2">
+            Open Help Center <ArrowRight size={14} />
+          </Link>
+        </div>
       </div>
 
       <p className="mt-6 text-center text-sm text-[#8a7c68]">
